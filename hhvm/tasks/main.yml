@@ -22,15 +22,6 @@
     - hhvm
     - php5-cli
 
-- name: Check port
-  shell: grep -c 'Port = 80' /etc/hhvm/server.hdf
-  register: port_check
-  ignore_errors: True
-
-- name: Change port
-  shell: sed -i 's/Port = 80/Port = 9000/' /etc/hhvm/server.hdf
-  when: port_check > 0
-
 - name: Check init script
   shell: grep -c 'fastcgi' /etc/init.d/hhvm
   register: init_check
