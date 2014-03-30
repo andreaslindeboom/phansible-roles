@@ -7,6 +7,10 @@
   sudo: yes
   shell: echo deb http://dl.hhvm.com/ubuntu precise main | sudo tee /etc/apt/sources.list.d/hhvm.list
 
+- name: Add Boost repo
+  sudo: yes
+  shell: apt_repository: repo=ppa:mapnik/boost
+
 - name: Update apt
   sudo: yes
   apt: update_cache=yes
